@@ -13,6 +13,8 @@ docker-compose up
 
 http://localhost:42000/
 
+Code: `public/index.php`
+
 
 # How to implement in another system
 
@@ -31,4 +33,3 @@ http://localhost:42000/
     $result = $hasher->check($pass, $hash);
     ```
 
-drupal-password-hash-system
