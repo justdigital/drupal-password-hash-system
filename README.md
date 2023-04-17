@@ -33,3 +33,26 @@ Code: `public/index.php`
     $result = $hasher->check($pass, $hash);
     ```
 
+# optional
+
+## if you want to import the database through the docker admin you can use the adminer
+
+1. go to url localhost:8080
+
+2. select the system, in this case use MySQL
+
+3. add your MySQL server information as per service in docker-composer
+    1. Servidor: db
+    2. Usuário: admin
+    3. Senha: admin
+    4. Banco de dados: hash_system
+
+4. click enter
+
+5. click on the import option
+
+6. uncheck the "stop on error" checkbox
+
+7. select the database backup file (<fileBackUp.sql.gz>) you want to import
+
+8. select table users_field_data and click select data.

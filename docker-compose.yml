@@ -1,7 +1,5 @@
-###############################################################################
-#                          Generated on phpdocker.io                          #
-###############################################################################
 version: '3.1'
+
 services:
     webserver:
         image: 'nginx:alpine'
@@ -18,3 +16,22 @@ services:
         volumes:
             - '.:/application'
             - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.2/fpm/conf.d/99-overrides.ini'
+    
+    db:
+        image: mysql
+        working_dir: /application
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: senha
+            MYSQL_DATABASE: hash_system
+            MYSQL_USER: admin
+            MYSQL_PASSWORD: admin
+        volumes:
+            - ./initdb.d:/docker-entrypoint-initdb.d
+        entrypoint: docker-entrypoint.sh            
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
