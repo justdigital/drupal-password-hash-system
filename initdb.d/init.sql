@@ -1,0 +1,2 @@
+GRANT ALL PRIVILEGES ON hash_systen.* TO 'admin'@'%' IDENTIFIED BY 'admin';
+FLUSH PRIVILEGES;
